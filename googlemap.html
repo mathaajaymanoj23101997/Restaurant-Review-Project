@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Google Maps</title>
+	<style>
+	html,body{
+      height:100%;
+    }
+	
+	  #map{
+	  	height:100%;
+	  }
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+	function initMap(){
+	var styles=[
+	            {
+	            	featureType:'water',
+	            	stylers:
+	            	[
+	            	    {
+	            	    	color:'#00ff00'
+	            	    }
+	            	]
+	            },
+	            {
+	            	featureType:'administrative',
+	            	elementType:'labels.text.stroke',
+	            	stylers:[
+	            	{color:'#ffccgg'}],
+	            	{
+	            		weight:6
+	            	}
+	            	]
+
+	            },
+	            {
+	            	featureType:'administrative',
+	            	elementType:'labels.text.fill',
+	            	stylers;[
+                              {color:'#ddccff'}
+	            	]
+	            },
+	            {
+	            	featureType:'road.highway',
+	            	elementType:'geometry.stroke',
+	            	stylers:[
+                              {color:'#eeffdd'},
+                              {
+                              	lightness:-40
+                              }
+	            	]
+	            }
+	            {
+	            	featureType:'transit.station',
+	            	stylers:[
+                    {weight:9},
+                    {hue:'#e85113')
+	            	]
+	            },
+	            {
+	            	featureType:'road.highway',
+	            	elementType:'geometry.fill',
+	            	stylers:[
+                     {color:'#efe9e4'},{lightness}
+	            	]
+	            }
+	<script>
+		var map;
+		function initMap(){
+			map=new google.maps.Map(document.getElementById('map'),{
+				center:{lat:16.543590,lng:81.518884},zoom:15,
+				styles:styles,
+				mapTypeContron:false
+			
+		}); 
+		var locations=[
+		   {title:'Tyajampudi',location:{lat:16.970273,lng=81.524595}},
+		   {title:'tirumala',location:{lat:13.691363,lng:79.3458}},
+		   {title:''}
+		]
+
+			
+	</script>
+	<script async defer
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj7rzwN5BpzQj3TiWwzWhXS1gw5DQG4Ko&callback=initMap">
+		
+	</script>
+	var tirupathi={lat:13.607372,lng=79.350383};
+	  var marker=new google.maps.Marker({
+	  position:tirupathi,
+	  map:map,
+	  title:'Sateesh area'
+      });
+      var infowindow=new google.maps.InfoWindow({
+      content: 'infowindow'
+  });
+  marker.addListener('click',function(){
+  infowindow.open(map,marker);
+  });
+}
+</body>
+</html>
